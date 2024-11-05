@@ -360,25 +360,10 @@ function updateIma()
     $isIsset = $db->queryCosti($sql);
 
     foreach ($isIsset as $resource) {
-        // create curl resource
-        $ch = curl_init();
 
-        // set url
-        curl_setopt($ch, CURLOPT_URL, "https://thaudiotruyen.com/wp-json/wp/v2/posts?slug=" . $resource["slug"]);
-
-        //return the transfer as a string
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-
-        // $output contains the output string
-        $output = curl_exec($ch);
-
-        // close curl resource to free up system resources
-        curl_close($ch);
-        var_dump($output);
-        exit();
         $content = file_get_contents("https://thaudiotruyen.com/wp-json/wp/v2/posts?slug=" . $resource["slug"]);
-
+        var_dump($content);
+        exit();
         if ($content == $ss) {
             continue;
         }
