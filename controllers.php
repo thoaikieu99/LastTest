@@ -362,6 +362,8 @@ function updateIma()
     foreach ($isIsset as $resource) {
 
         $content = @file_get_contents("https://thaudiotruyen.com/wp-json/wp/v2/posts?slug=" . $resource["slug"]);
+        var_dump($content);
+        exit();
         if ($content == $ss) {
             continue;
         }
